@@ -27,8 +27,8 @@ const PayeeSchema = new Schema({
     required: true
   },
   Remittance: {
-    type: [{}],
-    required: false
+    type: {},
+    required: true
   }
 });
 
