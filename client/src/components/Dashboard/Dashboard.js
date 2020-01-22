@@ -1,14 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const Dashboard = () => {
+import Profile from '../Profile/Profile';
+import Summary from '../Summary/Summary';
+
+const Dashboard = ({payees}) => {
+  const [profile, setProfile] = useState(null);
+
+  const buildPayeeLog = () => {
+    return payees.map(item => 
+      <Summary 
+        key={item._id} 
+        data={item}
+        setProfile={setProfile} />);
+  }
+
+  const buildProfile = () => {
+    console.log('Profile', profile);
+    return <Profile key={profile._id} data={profile}/>
+  }
+
   return (
     <main>
       Dashboard
       <section className="log">
-        Log
+        {buildPayeeLog()}
       </section>
       <aside className="Profile">
-        Profile
+        {profile && buildProfile()}
       </aside>
     </main>
   )

@@ -12,10 +12,12 @@ function App() {
       .get("/api/payee")
       .then(body => setPayee(body.data))
       .catch(err => console.log(err))
+    console.log('MADE REQUEST')
   }, [])
 
   return (
     <div className="App">
+      <button onClick={()=> console.log(payees)}>Log</button>
       <aside>
         Nav
       </aside>
@@ -23,7 +25,7 @@ function App() {
         Search
       </header>
       <Switch>
-        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/" render={() => <Dashboard payees={payees} />} />
       </Switch>
     </div>
   );
