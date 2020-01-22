@@ -16,7 +16,14 @@ const Dashboard = ({payees}) => {
 
   const buildProfile = () => {
     console.log('Profile', profile);
-    return <Profile key={profile._id} data={profile}/>
+    return (
+      <Profile
+        key={profile._id}
+        Payee={profile.Payee}
+        Payment={profile.Payment}
+        Remittance={profile.Remittance}
+      />
+    );
   }
 
   return (
