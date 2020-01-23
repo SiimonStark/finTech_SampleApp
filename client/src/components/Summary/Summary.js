@@ -5,8 +5,8 @@ const Summary = ({ data, setProfile }) => {
   const [expand, setExpand] = useState(false);
 
   const buildRemittance = () => {
-    return data.Remittance.map(item => (
-      <Transaction key={item.InvoiceId} Remittance={item} />
+    return data.Remittance.map((item, index) => (
+      <Transaction key={`${index}_${item.InvoiceId}`} Remittance={item} />
     ));
   }
 
