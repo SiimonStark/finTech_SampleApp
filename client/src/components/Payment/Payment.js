@@ -11,7 +11,6 @@ const Card = ({data}) => {
 
   const findCard = () => {
     let result = searchData();
-    console.log('PAYEE', result)
     return buildCard(result.Payee, result.Payment)
   }
 

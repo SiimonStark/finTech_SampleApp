@@ -3,16 +3,34 @@ import React, {useState} from 'react';
 import Profile from '../Profile/Profile';
 import Summary from '../Summary/Summary';
 
-const Dashboard = ({payees}) => {
+const Dashboard = ({activePage, setActivePage, payees, pages}) => {
   const [profile, setProfile] = useState(null);
-  const [pages, setPages] = useState({});
 
-  const buildPayeeLog = () => {
-    return payees.map(item => 
+  const buildPayeeLog = () => (
+    payees.map(item => 
       <Summary 
         key={item._id} 
         data={item}
-        setProfile={setProfile} />);
+        setProfile={setProfile} />)
+  )
+
+  const buildPageIndicator = () => {
+    return (
+      <section className="indicator">
+        {activePage > 0 && <button className="far fa-caret-square-left" />}
+        {pages.map((arr, index) => {
+          let faType = activePage === index ? "fas" : "far";
+          return (
+            <i
+              key={index}
+              className={`${faType} fa-square`}
+              onClick={() => setActivePage(index)}
+            />
+          );
+        })}
+        {activePage < pages.length - 1 && <button className="far fa-caret-square-right" />}
+      </section>
+    );
   }
 
   const buildProfile = () => (
@@ -28,7 +46,8 @@ const Dashboard = ({payees}) => {
     <main>
       Dashboard
       <section className="log">
-        {buildPayeeLog()}
+        {payees && buildPayeeLog()}
+        {pages && buildPageIndicator()}
       </section>
       <aside className="Profile">
         {profile && buildProfile()}
