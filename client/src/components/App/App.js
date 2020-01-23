@@ -3,55 +3,52 @@ import { Route, Switch, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import Dashboard from '../Dashboard/Dashboard';
-import Card from '../Card/Card';
+import Payment from '../Payment/Payment';
 import Remittance from '../Remittance/Remittance';
 
 function App() {
   const [payees, setPayee] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     axios
       .get("/api/payee")
       .then(body => setPayee(body.data))
-      .catch(err => console.log(err))
-    console.log('MADE REQUEST')
-  }, [])
+      .catch(err => setError(err));
+  }, []);
 
-  const findPayment = (id) => {
-    console.log('Start Route to Payment');
-    const result = payees.find(payee => payee.Payment.PAN === id);
-    return result.Payment;
+  const buildError = () => {
+    return (
+      <div className="overlay">
+        <section className="modal modal--error">
+          <button onClick={window.location('/')}>
+            Refresh
+          </button>
+          <p>{error}</p>
+        </section>
+      </div>
+    )
   }
-
-  // const findRemittance = (Data) => {
-  //   console.log('Start Route to Remittance')
-  //   console.log(id)
-  //   let {id} = useParams();
-  //   console.log('Route Data', Data)
-  //   const result = payees.find(payee => payee.Remittance.includes((remit) => remit.InvoiceNo === Data));
-
-  //   console.log('Result => ', result);
-  //   return result.Remittance;
-  // }
 
   return (
     <div className="App">
       <button onClick={() => console.log(payees)}>Log</button>
       <aside>Nav</aside>
       <header>Search</header>
+      {error && buildError()}
       <Switch>
         <Route path="/" exact render={() => <Dashboard payees={payees} />} />
         <Route
           path="/Payment/:id"
           exact
-          render={match => (
-            <Card payment={findPayment(match.params)} />
+          render={() => (
+            <Payment data={payees} />
           )}
         />
         <Route
           path="/Remittance/:id"
           exact
-          render={match => (
+          render={() => (
             <Remittance data={payees} />
           )}
         />

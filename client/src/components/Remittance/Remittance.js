@@ -31,7 +31,6 @@ const Remittance = ({data}) => {
         Remittance Details:
         {id}
         {data.length && findRemittance()}
-        {/* <p>{data.InvoiceNo}</p> */}
       </section>
     </div>
   )
