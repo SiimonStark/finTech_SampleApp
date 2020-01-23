@@ -5,6 +5,7 @@ import Summary from '../Summary/Summary';
 
 const Dashboard = ({payees}) => {
   const [profile, setProfile] = useState(null);
+  const [pages, setPages] = useState({});
 
   const buildPayeeLog = () => {
     return payees.map(item => 
@@ -14,10 +15,14 @@ const Dashboard = ({payees}) => {
         setProfile={setProfile} />);
   }
 
-  const buildProfile = () => {
-    console.log('Profile', profile);
-    return <Profile key={profile._id} data={profile}/>
-  }
+  const buildProfile = () => (
+    <Profile
+      key={profile._id}
+      Payee={profile.Payee}
+      Payment={profile.Payment}
+      Remittance={profile.Remittance}
+    />
+  );
 
   return (
     <main>

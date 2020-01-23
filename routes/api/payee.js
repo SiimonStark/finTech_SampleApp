@@ -9,6 +9,7 @@ const Payee = require('../../models/Payee');
 router.get('/', (req, res) => {
   Payee.find()
     .then(payee => res.json(payee))
+    .catch(err => res.json({err}));
 })
 
 // @route POST api/payee
