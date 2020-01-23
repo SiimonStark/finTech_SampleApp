@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
 
+import Transaction from '../Transactions/Transactions';
+
 const Card = ({data}) => {
   let {id} = useParams();
   let [showPAN, setShowPAN] = useState(false);
@@ -10,6 +12,11 @@ const Card = ({data}) => {
   const findCard = () => {
     let result = searchData();
     return buildCard(result.Payee, result.Payment)
+  }
+
+  const findHistory = () => {
+    const result = searchData();
+    return buildHistory(result.Remittance);
   }
 
   const buildCard = (Payee, Payment) => {
@@ -49,11 +56,20 @@ const Card = ({data}) => {
     );
   };
 
+  const buildHistory = (Rem) => (
+    <article className="Payment--history">
+      {Rem.map((r, index) => (
+        <Transaction key={index} Remittance={r} />
+      ))}
+    </article>
+  );
+
   return (
     <div className="overlay">
       <section className="modal Card">
         <Link to="/">x</Link>
         {data.length && findCard()}
+        {data.length && findHistory()}
       </section>
     </div>
   );

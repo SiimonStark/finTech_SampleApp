@@ -5,8 +5,12 @@ const Remittance = ({data}) => {
   let {id} = useParams();
 
   const findRemittance = () => {
-    let result = data.find((item) => item.Remittance.find(rem => rem.InvoiceNo == id));
-    let Remittance = result.Remittance.find(item => item.InvoiceNo == id);
+    let result = data.find((item) => (
+      item.Remittance.find(rem => Number(rem.InvoiceNo) === Number(id))
+    ));
+    let Remittance = result.Remittance.find(item => (
+      Number(item.InvoiceNo) === Number(id)
+    ));
 
     return buildRemittance(Remittance);
   }

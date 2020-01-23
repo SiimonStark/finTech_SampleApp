@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 
 const Transactions = ({Remittance}) => {
 
-  const buildTransaction = () => {
-    return (
-      <p>{Remittance.PayorName}{Remittance.InvoiceNo}{Remittance.Amount}</p>
-    )
-  }
+  const buildTransaction = () => (
+    <p key={Remittance.InvoiceNo}>
+      {Remittance.PayorName}{Remittance.InvoiceNo}{Remittance.Amount}
+    </p>
+  )
 
   return (
     <section className="Transactions">
