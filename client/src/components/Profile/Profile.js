@@ -24,7 +24,6 @@ const Profile = ({Payee, Payment, Remittance}) => {
       }
       return addressAcc;
     }, {query: [], listing: []});
-    console.log('After Reduce => ', address);
 
     return (
       <div className="map--content">

@@ -5,6 +5,7 @@ import Summary from '../Summary/Summary';
 
 const Dashboard = ({payees}) => {
   const [profile, setProfile] = useState(null);
+  const [pages, setPages] = useState({});
 
   const buildPayeeLog = () => {
     return payees.map(item => 
