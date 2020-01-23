@@ -5,8 +5,10 @@ const Card = ({data}) => {
   let {id} = useParams();
   let [showPAN, setShowPAN] = useState(false);
 
+  const searchData = () => data.find(item => item.Payee.Name === id);
+
   const findCard = () => {
-    let result = data.find((item) => item.Payee.Name === id);
+    let result = searchData();
     return buildCard(result.Payee, result.Payment)
   }
 

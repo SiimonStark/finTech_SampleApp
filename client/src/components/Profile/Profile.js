@@ -79,7 +79,7 @@ const Profile = ({Payee, Payment, Remittance}) => {
       </article>
       <article className="Profile--card">
         <div className="card">
-          <Link to={`/Payment/${Payee.Name}`}>
+          <Link to={`/Card/${Payee.Name}`}>
             <p className="card--name">{Payee.Name}</p>
             {buildPAN()}
             <p className="card--expire">Exp: {Payment.Exp}</p>

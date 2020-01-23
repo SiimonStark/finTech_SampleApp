@@ -1,24 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 
 const Remittance = ({data}) => {
   let {id} = useParams();
 
   const findRemittance = () => {
-    console.log(data)
-    let result;
-    let payee = data.find((payee) => payee.Remittance.find(item => item.InvoiceNo == id));
-    console.log('payee =>', payee)
-    result = payee.Remittance.find(item => item.InvoiceNo == id);
-    console.log('RESULT =>', result)
+    let result = data.find((item) => item.Remittance.find(rem => rem.InvoiceNo == id));
+    let Remittance = result.Remittance.find(item => item.InvoiceNo == id);
 
-    return buildRemittance(result);
+    return buildRemittance(Remittance);
   }
 
-  const buildRemittance = (rem) => {
+  const buildRemittance = (Rem) => {
     return (
       <article>
-        <p>{rem.PayorName}{rem.InvoiceNo}</p>
+        <h4>{Rem.PayorName}
+          <span>id: {Rem.PayorId}</span>
+        </h4>
+        <p>
+          <span>Invoice No: {Rem.InvoiceNo}</span>
+          <span>Amount: {Rem.Amount}</span>
+        </p>
+        <p>{Rem.Description}</p>
       </article>
     )
   }
@@ -27,9 +30,7 @@ const Remittance = ({data}) => {
     <div className="overlay">
       <section className="modal Remittance">
         <Link to="/">x</Link>
-        {/* <button onClick={logParams}>LOG params</button> */}
-        Remittance Details:
-        {id}
+        <h5>Remittance Details:</h5>
         {data.length && findRemittance()}
       </section>
     </div>
