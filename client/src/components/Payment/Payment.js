@@ -57,11 +57,13 @@ const Card = ({data}) => {
     );
   };
 
-  const buildHistory = (Rem) => {
-    return Rem.map((r, index) => (
-      <Transaction key={index} Remittance={r} />
-    ));
-  }
+  const buildHistory = (Rem) => (
+    <article className="Payment--history">
+      {Rem.map((r, index) => (
+        <Transaction key={index} Remittance={r} />
+      ))}
+    </article>
+  );
 
   return (
     <div className="overlay">
