@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 const Profile = ({Payee, Payment, Remittance}) => {
   const [showPAN, setShowPAN] = useState(false);
@@ -78,10 +79,12 @@ const Profile = ({Payee, Payment, Remittance}) => {
       </article>
       <article className="Profile--card">
         <div className="card">
-          <p className="card--name">{Payee.Name}</p>
-          {buildPAN()}
-          <p className="card--expire">Exp: {Payment.Exp}</p>
-          <p className="card--cvv">CVV: {Payment.CVV}</p>
+          <Link to={`/Card/${Payment.PAN}`}>
+            <p className="card--name">{Payee.Name}</p>
+            {buildPAN()}
+            <p className="card--expire">Exp: {Payment.Exp}</p>
+            <p className="card--cvv">CVV: {Payment.CVV}</p>
+          </Link>
         </div>
       </article>
     </section>
