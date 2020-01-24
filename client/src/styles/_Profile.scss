@@ -27,6 +27,9 @@
   width: 20vw;
   font-size: 14px;
 
+    h4 {
+      margin-bottom: 4px;
+    }
     a, p {
       color: #4b7287;
 
@@ -35,9 +38,6 @@
       }
     } 
     font-weight: 500;
-
-  span {
-  }
 }
 
 .Profile--total {
@@ -65,6 +65,12 @@
   }
 }
 
+.card--link {
+  content: '';
+  height: 100%;
+  width: 20vw;
+}
+
 .card {
   position: absolute;
   bottom: 5px;
@@ -75,6 +81,7 @@
   padding-left: 7px;
   font-size: 10px;
   height: 80%;
+  width: 100%;
 
   .card--details {
     font-size: 14px;

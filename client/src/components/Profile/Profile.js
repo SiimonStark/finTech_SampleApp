@@ -92,7 +92,7 @@ const Profile = ({Payee, Payment, Remittance}) => {
         <h2>{`$${calcTotal().toFixed(2)}`}</h2>
       </article>
       <article className="Profile--card">
-        <Link to={`/Payment/${Payee.Name}`}>
+        <Link className="card--link" to={`/Payment/${Payee.Name}`}>
           <div className="card">
               <p className="card--details name">{Payee.Name}</p>
               {buildPAN()}
