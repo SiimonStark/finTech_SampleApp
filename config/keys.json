@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://adminSandy:TechTools7@cluster0-f0pkx.mongodb.net/finTech?retryWrites=true&w=majority",
+  "jwtSecret": "sl_myJwtSecret"
+}

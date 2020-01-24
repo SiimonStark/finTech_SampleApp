@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const config = require("config");
 
 const payee = require('./routes/api/payee');
 
@@ -9,7 +10,8 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const db = process.env.mongoURI || require('./config/keys').mongoURI;
+// DB Config
+const db = config.get('mongoURI');
 
 mongoose
   .connect(
