@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("/api/payee")
+      .get("/api/paye")
       .then(body => {
         setData(body.data);
         return body.data;
@@ -41,21 +41,23 @@ function App() {
   const supplyPageData = () => pages[activePage];
 
   const buildError = () => (
-    <div className="overlay">
+    <div className="overlay" onClick={(e) => e.target.classList.includes('overlay') && (window.location = "/")}>
       <section className="modal modal--error">
-        <button onClick={() => window.location.reload(true)}>
-          Refresh
-        </button>
+        <button
+          className="close fas fa-redo-alt"
+          onClick={() => (window.location = "/")}
+        />
         <p>{error}</p>
       </section>
     </div>
-  )
+  );
 
   const isLoaded = () => {
     if (data.length && pages.length) {
       return (
         <Switch>
           <Route
+            exact
             path="/"
             render={() => (
               <Dashboard
@@ -66,8 +68,9 @@ function App() {
               />
             )}
           />
-          <Route path="/Payment/:id" render={() => <Payment data={data} />} />
+          <Route exact path="/Payment/:id" render={() => <Payment data={data} />} />
           <Route
+            exact
             path="/Remittance/:id"
             render={() => <Remittance data={data} />}
           />

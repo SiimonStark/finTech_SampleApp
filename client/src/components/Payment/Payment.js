@@ -67,7 +67,9 @@ const Card = ({data}) => {
   return (
     <div className="overlay">
       <section className="modal Card">
-        <Link to="/">x</Link>
+        <Link className="close" to="/">
+          <i className="fas fa-times"></i>
+        </Link>
         {data.length && findCard()}
         {data.length && findHistory()}
       </section>
