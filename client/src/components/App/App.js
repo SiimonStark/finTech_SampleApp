@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("/api/paye")
+      .get("/api/payee")
       .then(body => {
         setData(body.data);
         return body.data;
@@ -40,8 +40,12 @@ function App() {
 
   const supplyPageData = () => pages[activePage];
 
+  const handleClickOut = (e) => {
+    if (e.target.classList.contains("overlay")) window.location = "/";
+  }
+
   const buildError = () => (
-    <div className="overlay" onClick={(e) => e.target.classList.includes('overlay') && (window.location = "/")}>
+    <div className="overlay" onClick={(e) => handleClickOut(e)}>
       <section className="modal modal--error">
         <button
           className="close fas fa-redo-alt"
@@ -68,11 +72,19 @@ function App() {
               />
             )}
           />
-          <Route exact path="/Payment/:id" render={() => <Payment data={data} />} />
+          <Route
+            exact
+            path="/Payment/:id"
+            render={() => (
+              <Payment data={data} handleClickOut={handleClickOut} />
+            )}
+          />
           <Route
             exact
             path="/Remittance/:id"
-            render={() => <Remittance data={data} />}
+            render={() => (
+              <Remittance data={data} handleClickOut={handleClickOut} />
+            )}
           />
         </Switch>
       );

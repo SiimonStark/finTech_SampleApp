@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useParams} from 'react-router-dom';
 
-const Remittance = ({data}) => {
+const Remittance = ({handleClickOut, data}) => {
   let {id} = useParams();
 
   const findRemittance = () => {
@@ -31,7 +31,7 @@ const Remittance = ({data}) => {
   }
 
   return (
-    <div className="overlay">
+    <div className="overlay" onClick={(e) => handleClickOut(e)}>
       <section className="modal Remittance">
         <Link to="/">x</Link>
         <h5>Remittance Details:</h5>
