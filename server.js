@@ -9,7 +9,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const db = require('./config/keys').mongoURI;
+const db = process.env.mongoURI || require('./config/keys').mongoURI;
 
 mongoose
   .connect(
