@@ -1,0 +1,50 @@
+@import './normalize.scss';
+
+@import './Card.scss';
+@import './Dashboard.scss';
+@import './Header.scss';
+@import './Payment.scss';
+@import './Profile.scss';
+@import './Remittance.scss';
+@import './Transaction.scss';
+
+.overlay {
+  content: '';
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0 ,0 ,.3);
+}
+
+.modal {
+  position: relative;
+  height: max-content;
+  width: max-content;
+  padding: 2.5rem;
+  background: white;
+  border: .25px solid rgba(0, 0 ,0 ,.5);
+  box-shadow: 1px 1px 5px rgba(0, 0 ,0 ,.3);
+
+  .close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    &:hover {
+      color: #6e2a80;
+      cursor: pointer;
+    }
+  }
+}
+
+.modal--error {
+  
+  
+}

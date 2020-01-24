@@ -14,21 +14,36 @@ const Dashboard = ({activePage, setActivePage, payees, pages}) => {
         setProfile={setProfile} />)
   )
 
+  const hanldePage = (pageNum) => {
+    setActivePage(pageNum);
+    setProfile(null);
+  }
+
   const buildPageIndicator = () => {
     return (
       <section className="indicator">
-        {activePage > 0 && <button className="far fa-caret-square-left" />}
+        {activePage > 0 && (
+          <button
+            onClick={() => hanldePage(activePage - 1)}
+            className="far fa-caret-square-left"
+          />
+        )}
         {pages.map((arr, index) => {
           let faType = activePage === index ? "fas" : "far";
           return (
             <i
               key={index}
               className={`${faType} fa-square`}
-              onClick={() => setActivePage(index)}
+              onClick={() => hanldePage(index)}
             />
           );
         })}
-        {activePage < pages.length - 1 && <button className="far fa-caret-square-right" />}
+        {activePage < pages.length - 1 && (
+          <button
+            onClick={() => hanldePage(activePage + 1)}
+            className="far fa-caret-square-right"
+          />
+        )}
       </section>
     );
   }
