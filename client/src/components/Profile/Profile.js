@@ -19,7 +19,10 @@ const Profile = ({Payee, Payment, Remittance}) => {
         addressAcc.query.push(Payee.Address[key]);
         addressAcc.listing.push(
           <p key={index}>
-            {key.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}: {Payee.Address[key]}
+            <span>{key.match(/[A-Z][a-z]+|[0-9]+/g).join(" ")}: </span>
+            <br />
+            {Payee.Address[key]}
+            <hr/>
           </p>
         );
       }
@@ -28,10 +31,10 @@ const Profile = ({Payee, Payment, Remittance}) => {
 
     return (
       <div className="map--content">
+        {address.listing}
         <a href={`https://maps.google.com/?q=${address.query.join('+')}`} target="blank">
           Map
         </a>
-        {address.listing}
       </div>
     )
   }
@@ -51,11 +54,13 @@ const Profile = ({Payee, Payment, Remittance}) => {
 
     return showPAN ? (
       <p className="card--pan" onMouseLeave={() => setShowPAN(false)}>
-        <span>{chunk1}</span> - <span>{chunk2}</span> - <span>{chunk3}</span>
+        <span className="chunk">{chunk1}</span> -{" "}
+        <span className="chunk">{chunk2}</span> -{" "}
+        <span className="chunk">{chunk3}</span>
       </p>
     ) : (
       <p className="card--pan" onMouseEnter={() => setShowPAN(true)}>
-      {privacy} - {privacy} - <span>{chunk3}</span>
+        {privacy} - {privacy} - <span className="chunk">{chunk3}</span>
       </p>
     );
   }
@@ -63,29 +68,38 @@ const Profile = ({Payee, Payment, Remittance}) => {
   return (
     <section className="Profile">
       <article className="Profile--details">
-        <h3>{Payee.Name}</h3>
-        <div className="details details--contact">
-          <h5>Contact</h5>
-          <a href={`tel:${Payee.Phone}`}>Phone: {Payee.Phone}</a>
-          <p>Fax: {Payee.Fax}</p>
-        </div>
-        <div className="details details--address">
-          <h5>Address</h5>
-          {buildAddress()}
+        <div className="details">
+          <h2>{Payee.Name}</h2>
+          <div className="details--contact">
+            <h4>Contact</h4>
+            <a href={`tel:${Payee.Phone}`}>
+              <span>Phone: </span>
+              {Payee.Phone}
+            </a>
+            <p>
+              <span>Fax: </span>
+              {Payee.Fax}
+            </p>
+          </div>
+          <div className="details--address">
+            <h4>Address</h4>
+            {buildAddress()}
+          </div>
         </div>
       </article>
       <article className="Profile--total">
-        {`$${calcTotal().toFixed(2)}`}
+        <h4>Total Spent:</h4>
+        <h2>{`$${calcTotal().toFixed(2)}`}</h2>
       </article>
       <article className="Profile--card">
-        <div className="card">
-          <Link to={`/Payment/${Payee.Name}`}>
-            <p className="card--name">{Payee.Name}</p>
-            {buildPAN()}
-            <p className="card--expire">Exp: {Payment.Exp}</p>
-            <p className="card--cvv">CVV: {Payment.CVV}</p>
-          </Link>
-        </div>
+        <Link to={`/Payment/${Payee.Name}`}>
+          <div className="card">
+              <p className="card--details name">{Payee.Name}</p>
+              {buildPAN()}
+              <p className="card--details expire">Exp: {Payment.Exp}</p>
+              <p className="card--details cvv">CVV: {Payment.CVV}</p>
+          </div>
+        </Link>
       </article>
     </section>
   );

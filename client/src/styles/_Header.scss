@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 2rem;
+
+  button {
+// ** From Paymerang
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid
+    #cfdbe2;
+    background: #fff;
+    padding: 5px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    // font-weight: 600;
+    font-size: 16px;
+    color:
+    #4f758b;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      background: #ecf2f5;
+      cursor: pointer;
+    }
+  }
+
+  img {
+    height: 1.6rem;
+  }
+}
