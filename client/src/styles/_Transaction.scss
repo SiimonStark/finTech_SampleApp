@@ -13,7 +13,10 @@
   align-items: center;
   color: #702082;
   width: 100%;
-
+  
+  p {
+    text-decoration: none;
+  }
   &:visited {
     color: #702082;
   }

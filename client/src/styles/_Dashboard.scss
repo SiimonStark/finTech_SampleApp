@@ -26,16 +26,18 @@ h1 {
   justify-content: space-around;
   height: 75vh;
   width: 100%;
-  overflow-y: scroll;
 
   article {
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     width: 100%;
-    height: max-content;
+    // height: max-content;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     // align-items: center;
     padding: 8px;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
   }
 
   button {
@@ -50,20 +52,13 @@ h1 {
   }
 }
 
-.summary {
-  height: max-content;
-  width: 100%;
-  button {
-    margin-right: 10px;
-  }
-}
-
-.summary--content {
+.Summary--content {
   display: flex;
   justify-content: space-around;
   align-items: center;
   font-size: 16px;
   font-weight: 500;
+  width: 100%;
 }
 
 .indicator {
