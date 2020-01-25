@@ -1,0 +1,103 @@
+.Profile {
+  position: absolute;
+  bottom: 10px;
+  right: -12vw;
+  height: 80vh;
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  h2, h4 {
+    color: #702082;
+  }
+}
+
+.details {
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 50vh;
+  width: 20vw;
+  font-size: 14px;
+
+    h4 {
+      margin-bottom: 4px;
+    }
+    a, p {
+      color: #4b7287;
+
+      &:visited {
+        color: #4b7287;
+      }
+    } 
+    font-weight: 500;
+}
+
+.Profile--total {
+  // margin: 0 1.2rem;
+
+  h2 {
+    letter-spacing: .15rem;
+  }
+}
+
+.Profile--card {
+  background: radial-gradient(99.56% 99.56% at 4.49% 1.22%, rgba(234, 81, 167, 0.8) 0%, rgba(112, 32, 130, 0.9) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 17vh;
+  width: 20vw;
+  position: relative;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  a:visited {
+    color: #fff;
+  }
+}
+
+.card--link {
+  content: '';
+  height: 100%;
+  width: 20vw;
+}
+
+.card {
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding-left: 7px;
+  font-size: 10px;
+  height: 80%;
+  width: 100%;
+
+  .card--details {
+    font-size: 14px;
+    text-shadow: .5px .5px 2px black;
+  }
+  .name {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .card--pan {
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: .5px .5px 2px black;
+
+    i {
+      font-size: 8px;
+    }
+  }
+}
