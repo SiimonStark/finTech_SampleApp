@@ -22,8 +22,8 @@ const Summary = ({ data, setProfile }) => {
           onClick={() => setExpand(!expand)}
         />
         <p>{data.Payee.Name}</p>
-        <p>{data.Remittance.length}</p>
-        <p>{data.Payee.Attention}</p>
+        <p>Trans: {data.Remittance.length}</p>
+        <p>Attn:{data.Payee.Attention}</p>
         <p>{data.Payee.SubmissionDate}</p>
       </div>
       {expand && buildRemittance()}

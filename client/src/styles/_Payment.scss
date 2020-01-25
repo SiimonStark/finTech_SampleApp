@@ -1,0 +1,17 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 40vw;
+  
+  .Card--log {
+    margin-top: 1.2rem;
+    width: 100%;
+
+    h5 {
+      color: #4b7287;
+      border-bottom: 1px solid rgba(#4b7287, .4);
+    }
+  }
+}

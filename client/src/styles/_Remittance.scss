@@ -1,0 +1,28 @@
+.Remittance {
+
+  p {
+    color: #4b7287;
+    max-width: 400px;
+    margin: 5px;
+    font-weight: 500;
+  }
+  h2 {
+    margin-bottom: 1rem;
+    color: #702082;
+  }
+  h2 span {
+    margin-left: 1rem;
+  }
+  h5 {
+    color: #702082;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba($color: #4b7287, $alpha: .4)
+  }
+  .subLine {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5px;
+  }
+}
