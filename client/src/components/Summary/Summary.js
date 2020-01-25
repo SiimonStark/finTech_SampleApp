@@ -16,14 +16,16 @@ const Summary = ({ data, setProfile }) => {
       onClick={() => setProfile(data)}
       style={{ display: "flex" }}
     >
-      <button
-        className={`fas fa-caret-square-${expand ? "up" : "down"}`}
-        onClick={() => setExpand(!expand)}
-      />
-      <p>{data.Payee.Name}</p>
-      <p>{data.Remittance.length}</p>
-      <p>{data.Payee.Attention}</p>
-      <p>{data.Payee.SubmissionDate}</p>
+      <div className="Summary--content">
+        <button
+          className={`fas fa-caret-square-${expand ? "up" : "down"}`}
+          onClick={() => setExpand(!expand)}
+        />
+        <p>{data.Payee.Name}</p>
+        <p>{data.Remittance.length}</p>
+        <p>{data.Payee.Attention}</p>
+        <p>{data.Payee.SubmissionDate}</p>
+      </div>
       {expand && buildRemittance()}
     </article>
   );
