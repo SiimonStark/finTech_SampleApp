@@ -7,8 +7,8 @@ const Transactions = ({Remittance}) => {
     <section className="Transactions">
       <Link to={`/Remittance/${Remittance.InvoiceNo}`}>
       <div className="Transactions--content">
-        <p>{Remittance.PayorName}</p>
-        <p>{Remittance.InvoiceNo}</p>
+        <p>Payor: {Remittance.PayorName}</p>
+        <p>Invoice# {Remittance.InvoiceNo}</p>
         <p>{Remittance.Amount}</p>
       </div>
       </Link>

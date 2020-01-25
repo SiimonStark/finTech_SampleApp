@@ -71,7 +71,10 @@ const Card = ({handleClickOut, data}) => {
           <i className="fas fa-times"></i>
         </Link>
         {data.length && findCard()}
-        {data.length && findHistory()}
+        <div className="Card--log">
+          <h5>Remittance Log:</h5>
+          {data.length && findHistory()}
+        </div>
       </section>
     </div>
   );

@@ -18,27 +18,30 @@ const Remittance = ({handleClickOut, data}) => {
   const buildRemittance = (Rem) => {
     return (
       <article>
-        <h4>{Rem.PayorName}
+        <h2>
+          {Rem.PayorName}
           <span>id: {Rem.PayorId}</span>
-        </h4>
-        <p>
-          <span>Invoice No: {Rem.InvoiceNo}</span>
-          <span>Amount: {Rem.Amount}</span>
-        </p>
+        </h2>
+        <h5>Remittance Details:</h5>
+        <div className="subLine">
+          <p>Invoice No: {Rem.InvoiceNo}</p>
+          <p>Amount: {Rem.Amount}</p>
+        </div>
         <p>{Rem.Description}</p>
       </article>
-    )
+    );
   }
 
   return (
-    <div className="overlay" onClick={(e) => handleClickOut(e)}>
+    <div className="overlay" onClick={e => handleClickOut(e)}>
       <section className="modal Remittance">
-        <Link to="/">x</Link>
-        <h5>Remittance Details:</h5>
+        <Link className="close" to="/">
+          <i className="fas fa-times"></i>
+        </Link>
         {data.length && findRemittance()}
       </section>
     </div>
-  )
+  );
 }
 
 export default Remittance;
