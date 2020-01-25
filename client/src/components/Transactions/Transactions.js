@@ -3,16 +3,14 @@ import {Link} from 'react-router-dom';
 
 const Transactions = ({Remittance}) => {
 
-  const buildTransaction = () => (
-    <p key={Remittance.InvoiceNo}>
-      {Remittance.PayorName}{Remittance.InvoiceNo}{Remittance.Amount}
-    </p>
-  )
-
   return (
     <section className="Transactions">
       <Link to={`/Remittance/${Remittance.InvoiceNo}`}>
-        {buildTransaction()}
+      <div className="Transactions--content">
+        <p>{Remittance.PayorName}</p>
+        <p>{Remittance.InvoiceNo}</p>
+        <p>{Remittance.Amount}</p>
+      </div>
       </Link>
     </section>
   )
