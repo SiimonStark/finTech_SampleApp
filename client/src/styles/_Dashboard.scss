@@ -14,23 +14,34 @@ main {
   width: 55vw;
 }
 
+h1 {
+  font-weight: 600;
+  color: #4b7287;
+}
+
 .log {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
   height: 75vh;
+  width: 100%;
+  overflow-y: scroll;
 
   article {
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-around;
+    // align-items: center;
+    padding: 8px;
   }
 
   button {
     background: none;
     border: none;
     color: #702082;
-    position: absolute;
-    left: 1.6rem;
 
     &:hover {
       cursor: pointer;
@@ -39,17 +50,37 @@ main {
   }
 }
 
+.summary {
+  height: max-content;
+  width: 100%;
+  button {
+    margin-right: 10px;
+  }
+}
+
+.summary--content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .indicator {
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 0;
-  height: 15px;
+  height: max-content;
   width: 100%;
   display: flex;
   justify-content: center;
 
   i {
     color: #702082;
-    margin: 5px;
+    margin: 0 5px;
+  }
+  button {
+    margin: 0 5px;
+    font-weight: 500;
   }
 }

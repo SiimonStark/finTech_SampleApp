@@ -59,7 +59,7 @@ const Dashboard = ({activePage, setActivePage, payees, pages}) => {
 
   return (
     <main>
-      Dashboard
+      <h1>Dashboard</h1>
       <section className="log">
         {payees && buildPayeeLog()}
         {pages && buildPageIndicator()}
