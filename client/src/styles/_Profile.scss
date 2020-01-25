@@ -56,11 +56,11 @@
   height: 17vh;
   width: 20vw;
   position: relative;
-  a {
+  a, p {
     color: #fff;
     text-decoration: none;
   }
-  a:visited {
+  a:visited, p:visited {
     color: #fff;
   }
 }
